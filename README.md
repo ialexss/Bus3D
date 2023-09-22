@@ -1,8 +1,5 @@
-# React + Vite
+![image](https://github.com/ialexss/Bus3D/assets/107780424/e0f3bc30-efc4-43e8-b314-e05ae33006fa)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Convertir GLTF a Componente de react: https://github.com/pmndrs/gltfjsx
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Doc: https://docs.pmnd.rs/react-three-fiber/tutorials/loading-models
