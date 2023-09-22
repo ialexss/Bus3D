@@ -7,11 +7,11 @@ Files: celcius.gltf [9.49MB] > celcius-transformed.glb [210.96KB] (98%)
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export default function Model(props) {
+export default function Model({color,props}) {
   const { nodes, materials } = useGLTF('/celcius-transformed.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.bodi.geometry} material={materials.Default_Material} material-color={"#000000"} />
+      <mesh geometry={nodes.bodi.geometry} material={materials.Default_Material} material-color={color} />
       <mesh geometry={nodes.ban.geometry} material={nodes.ban.material} />
     </group>
   )
