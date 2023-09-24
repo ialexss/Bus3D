@@ -1,7 +1,7 @@
 import './App.css'
 import { Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
-import {Center, Environment ,OrbitControls,Stage} from '@react-three/drei'
+import {Center, Environment ,OrbitControls,Stage, SoftShadows} from '@react-three/drei'
 import { useControls } from 'leva'
 
 import Micro from "./components/Micro"
@@ -27,6 +27,7 @@ function App() {
       <Canvas camera={{zoom:1, position:[5,2,5],fov:80,far:2000}} shadows gl={{preserveDrawingBuffer:true,}}>
           <Suspense fallback={null}>
             <Center top>
+              <SoftShadows />
               <Micro color={color} numero={numero} linea={linea} girar={girar} avanzar={avanzar} retroceder={retroceder} />
             </Center>
             <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2.1} />

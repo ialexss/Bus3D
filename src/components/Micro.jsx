@@ -54,8 +54,8 @@ export default function Model({color,numero,linea,girar,avanzar,retroceder,props
         <meshStandardMaterial color={linea} toneMapped={true} />
       </Text>
       <AccumulativeShadows>
-              <RandomizedLight position={[2, 5, 5]} />
-      </AccumulativeShadows>
+        <RandomizedLight position={[2, 5, 5]} />
+      </AccumulativeShadows> 
       <mesh castShadow geometry={nodes['base2(int)'].geometry} material={materials.Interior} position={[0.22, 1.67, 1.605]} material-color={"#2A253B"} />
       <group position={[0.097, 1.515, 0.443]} >
         <mesh castShadow  geometry={nodes.bus_1.geometry} material={materials['Material.001']} material-color={color} />
