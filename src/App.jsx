@@ -6,14 +6,15 @@ import { useControls } from 'leva'
 
 import Micro from "./components/Micro"
 import Model from './components/Micromitsub'
+import MicroMod from './components/MicroMod'
 
 function App() {
 
   const {color,numero,avanzar,retroceder,linea,linea2,girar} = useControls({
     color: "#e2d5d5",
-    numero: "75",
-    linea: "#060072",
-    linea2:"#930000",
+    numero: "74",
+    linea: "#930000",
+    linea2:"#060072",
     avanzar: false,
     retroceder: false,
     girar: {
@@ -30,7 +31,8 @@ function App() {
           <Suspense fallback={null}>
             <Center top>
               <SoftShadows />
-              <Model color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder} />
+              <MicroMod color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder}/>
+              {/* <Model color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder} /> */}
             </Center>
             <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2.1} />
           </Suspense>
