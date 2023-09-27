@@ -26,7 +26,7 @@ function App() {
   
   return (
     <div style={{width:'100%',height:'100vh'}} >
-      <Canvas camera={{zoom:1, position:[5,2,5],fov:80,far:2000}} shadows gl={{preserveDrawingBuffer:true,}}>
+      <Canvas camera={{zoom:1, position:[10,5,-10],fov:80,far:2000}} shadows gl={{preserveDrawingBuffer:true,}}>
           <Suspense fallback={null}>
             <Center top>
               <SoftShadows />

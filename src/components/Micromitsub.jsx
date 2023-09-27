@@ -43,7 +43,7 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       <mesh castShadow geometry={nodes.mesh_0_17nr007.geometry} material={materials.Llantas} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow geometry={nodes.Guardabarros.geometry} material={materials.espejos} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow geometry={nodes.Marco_delantero.geometry} material={materials.espejos} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh castShadow geometry={nodes.Vidrio_delantero.geometry} material={materials.Glass} position={[0.06, -1.232, 3.08]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh castShadow geometry={nodes.Vidrio_delantero.geometry} material={materials.Glass} position={[0.06, -1.200, 3.08]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow geometry={nodes.mesh_0_18nr003.geometry} material={materials.Llantas} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow geometry={nodes.Llantas.geometry} material={materials['Llantas.002']} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh castShadow geometry={nodes.tubo_de_escape.geometry} material={materials['Material.007']} position={[0, -1.207, 3.082]} rotation={[Math.PI / 2, 0, 0]} />
