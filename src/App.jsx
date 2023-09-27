@@ -5,13 +5,15 @@ import {Center, Environment ,OrbitControls,Stage, SoftShadows} from '@react-thre
 import { useControls } from 'leva'
 
 import Micro from "./components/Micro"
+import Model from './components/Micromitsub'
 
 function App() {
 
-  const {color,numero,avanzar,retroceder,linea,girar} = useControls({
-    color: '#e2d5d5',
-    numero: "40",
-    linea: '#00903F',
+  const {color,numero,avanzar,retroceder,linea,linea2,girar} = useControls({
+    color: "#e2d5d5",
+    numero: "75",
+    linea: "#060072",
+    linea2:"#930000",
     avanzar: false,
     retroceder: false,
     girar: {
@@ -28,7 +30,7 @@ function App() {
           <Suspense fallback={null}>
             <Center top>
               <SoftShadows />
-              <Micro color={color} numero={numero} linea={linea} girar={girar} avanzar={avanzar} retroceder={retroceder} />
+              <Model color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder} />
             </Center>
             <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2.1} />
           </Suspense>
