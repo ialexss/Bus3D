@@ -7,7 +7,7 @@ import React, { useRef } from 'react'
 import {AccumulativeShadows, RandomizedLight, useGLTF,Text3D,Text } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
-export default function Model({color,numero,linea,linea2,girar,avanzar,retroceder,props}) {
+export default function Model({color,numero,linea,linea2,girar,abrir, cerrar,avanzar,retroceder,props}) {
   const { nodes, materials } = useGLTF('/microMod.gltf')
 
   const rueda = useRef();
@@ -19,6 +19,10 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
   const aro2 = useRef();
   const aro3 = useRef();
   const aro4 = useRef();
+
+  const puertaD = useRef();
+  const puertaI = useRef();
+
 
   const bus = useRef();
 
@@ -35,27 +39,43 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       aro4.current.rotation.x += delta * -2;
 
       bus.current.position.z += delta * -1;  
-    }else{
-      if(retroceder === true){
-        rueda.current.rotation.x += delta * 2;
-        rueda2.current.rotation.x += delta * 2;
-        rueda3.current.rotation.x += delta * 2;
-        rueda4.current.rotation.x += delta * 2;
+    }else if(retroceder === true){
+      rueda.current.rotation.x += delta * 2;
+      rueda2.current.rotation.x += delta * 2;
+      rueda3.current.rotation.x += delta * 2;
+      rueda4.current.rotation.x += delta * 2;
 
-        aro.current.rotation.x += delta * 2;
-        aro2.current.rotation.x += delta * 2;
-        aro3.current.rotation.x += delta * 2;
-        aro4.current.rotation.x += delta * 2;
-  
-  
-        bus.current.position.z += delta * 1;  
+      aro.current.rotation.x += delta * 2;
+      aro2.current.rotation.x += delta * 2;
+      aro3.current.rotation.x += delta * 2;
+      aro4.current.rotation.x += delta * 2;
+
+      bus.current.position.z += delta * 1;
+    }
+    if(abrir){
+      if(puertaD.current.rotation.z<(Math.PI/2.2)){
+        puertaI.current.rotation.z -= delta * 1;
+        puertaI.current.position.z -= delta * 1.45;   
+        puertaD.current.rotation.z += delta * 1;
       }
     }
+    else if(cerrar){
+      if(puertaI.current.rotation.z<0){
+        puertaI.current.rotation.z += delta * 1;
+        puertaI.current.position.z += delta * 1.45;
+        puertaD.current.rotation.z -= delta * 1;
+      }
+    }
+
     
   })
 
   return (
     <group ref={bus} {...props} dispose={null}>
+    <Text3D position={[1.2+(numero+'').length/2*0.29, 4.3, -9.0]} scale={[0.4, 0.5, 0.4]} rotation={[0,Math.PI,0]}  font="Inter_ExtraBold.json">
+      {numero}
+      <meshStandardMaterial color={linea2} toneMapped={true} />
+    </Text3D>
       <Text position={[0.15,3.3,-9.78]} rotation={[0,-Math.PI,0]}  font="Inter_ExtraBold.json" fontSize={0.8} type='font'  >
         {numero}
         <meshStandardMaterial color={linea} toneMapped={true} />
@@ -106,17 +126,17 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       <mesh geometry={nodes.mesh_0_20nr009.geometry} material={materials['exterior.001']} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.mesh_0_20nr010.geometry} material={materials.exteriorbajo} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.mesh_0_20nr011.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh geometry={nodes.mesh_0_20nr012.geometry} material={materials['Material.001']} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.mesh_0_20nr012.geometry} material={materials.exterior} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Rejilla_delantera.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.mesh_0_20nr014.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Ventana_copiloto.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Ventana_izquierda.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh geometry={nodes.mesh_0_20nr017.geometry} material={materials['exterior.001']}  material-color={color} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.mesh_0_20nr017.geometry} material={materials.exterior}  material-color={color} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Manija_trasera.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Marco_trasero.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.LimpiaParabrisa.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh geometry={nodes.mesh_0_20nr021_mesh_0_20nr022.geometry} material={materials.Llantas} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh geometry={nodes.mesh_0_20nr022_mesh_0_20nr023.geometry} material={materials.Llantas} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
+      {/* <mesh geometry={nodes.mesh_0_20nr021_mesh_0_20nr022.geometry} material={materials.Llantas} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
+      <mesh geometry={nodes.mesh_0_20nr022_mesh_0_20nr023.geometry} material={materials.Llantas} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} /> */}
       <mesh geometry={nodes.Agaramanos.geometry} material={materials.Piso} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.mesh_0_20nr024_mesh_0_20nr025.geometry} material={materials.accesorios} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Ventanas_derechas.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
@@ -131,12 +151,8 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       <mesh geometry={nodes.mesh_0_20nr031.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.mesh_0_20nr032.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Ventana_Piloto.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
-      <mesh geometry={nodes.Puerta_interior.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
+      {/* <mesh geometry={nodes.Puerta_interior.geometry} material={materials.espejos} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} /> */}
       {/* <mesh geometry={nodes.mesh_0_20nr051.geometry} material={materials.Glass} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} /> */}
-      <group position={[2.795, 3.674, -2.898]} rotation={[Math.PI / 2, 0, 0]}>
-        <mesh geometry={nodes.mesh_0_20nr269.geometry} material={materials.exterior}  material-color={color} />
-        <mesh geometry={nodes.mesh_0_20nr269_1.geometry} material={materials.exterior} />
-      </group>
       <mesh geometry={nodes.AroD1.geometry} material={materials['Material.007']} position={[2.445, 1.075, -7.094]} rotation={[Math.PI / 2, 0, 0]}  ref={aro4}/>
       <mesh geometry={nodes.Caja_de_cambios.geometry} material={materials.accesorios} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Logotipo_Marca.geometry} material={materials.marca} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} />
@@ -178,10 +194,15 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       <mesh geometry={nodes.AroI1.geometry} material={materials['Material.002']} position={[-2.258, 1.081, -7.078]} rotation={[Math.PI / 2, 0, 0]} ref={aro} />
       <mesh geometry={nodes.AroD2.geometry} material={materials['Material.004']} position={[2.355, 1.086, 5.175]} rotation={[Math.PI / 2, 0, 0]} ref={aro2} />
       <mesh geometry={nodes.AroI2.geometry} material={materials['Material.005']} position={[-2.087, 1.082, 5.181]} rotation={[Math.PI / 2, 0, 0]} ref={aro3}/>
-      <group position={[2.811, 3.701, -4.173]} rotation={[Math.PI / 2, 0, 0]}>
+      <group ref={puertaD} position={[2.811, 3.701, -5.417]} rotation={[Math.PI / 2, 0, 0]}>
         <mesh geometry={nodes.mesh_0_20nr004.geometry} material={materials.exterior}  material-color={color} />
         <mesh geometry={nodes.mesh_0_20nr004_1.geometry} material={materials.exterior} />
       </group>
+      <group ref={puertaI} position={[2.795, 3.674, -2.898]} rotation={[Math.PI /2, 0, 0]}>
+        <mesh geometry={nodes.mesh_0_20nr269.geometry} material={materials.exterior}  material-color={color} />
+        <mesh geometry={nodes.mesh_0_20nr269_1.geometry} material={materials.exterior} />
+      </group>
+
       {/* <mesh geometry={nodes.Puerta_vidrioI.geometry} material={materials['Glass.001']} position={[2.783, 4.634, -4.833]} rotation={[Math.PI / 2, 0, 0]} /> */}
     </group>
   )
