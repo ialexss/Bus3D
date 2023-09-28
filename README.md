@@ -1,6 +1,5 @@
-![image](https://github.com/ialexss/Bus3D/assets/107780424/e0f3bc30-efc4-43e8-b314-e05ae33006fa)
+ ![image](https://github.com/ialexss/Bus3D/assets/107780424/1c83bf6c-f049-4e83-a816-4bbaf458a0fe)
 
-![image](https://github.com/ialexss/Bus3D/assets/107780424/e10d68a1-64e5-42a0-aa57-d1ba8a43ee75)
 
 
 Convertir GLTF a Componente de react: https://github.com/pmndrs/gltfjsx
