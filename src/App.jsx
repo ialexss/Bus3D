@@ -32,7 +32,6 @@ function App() {
             <Center top>
               <SoftShadows />
               <MicroMod color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder}/>
-              {/* <Model color={color} numero={numero} linea={linea} linea2={linea2} girar={girar} avanzar={avanzar} retroceder={retroceder} /> */}
             </Center>
             <OrbitControls minPolarAngle={0} maxPolarAngle={Math.PI / 2.1} />
           </Suspense>
