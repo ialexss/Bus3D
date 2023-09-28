@@ -19,20 +19,20 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
 
   useFrame((_state,delta) => {
     if(avanzar){
-      rueda.current.rotation.x += delta * -1;
-      rueda2.current.rotation.x += delta * -1;
-      rueda3.current.rotation.x += delta * -1;
-      rueda4.current.rotation.x += delta * -1;
+      rueda.current.rotation.x += delta * -2;
+      rueda2.current.rotation.x += delta * -2;
+      rueda3.current.rotation.x += delta * -2;
+      rueda4.current.rotation.x += delta * -2;
 
-      bus.current.position.z += delta * -0.5;  
+      bus.current.position.z += delta * -1;  
     }else{
       if(retroceder === true){
-        rueda.current.rotation.x += delta * 1;
-        rueda2.current.rotation.x += delta * 1;
-        rueda3.current.rotation.x += delta * 1;
-        rueda4.current.rotation.x += delta * 1;
+        rueda.current.rotation.x += delta * 2;
+        rueda2.current.rotation.x += delta * 2;
+        rueda3.current.rotation.x += delta * 2;
+        rueda4.current.rotation.x += delta * 2;
   
-        bus.current.position.z += delta * 0.5;  
+        bus.current.position.z += delta * 1;  
       }
     }
     
@@ -158,10 +158,10 @@ export default function Model({color,numero,linea,linea2,girar,avanzar,retrocede
       <mesh castShadow geometry={nodes.linea011.geometry} material={materials['lineas1.001']} position={[-2.965, 2.648, 8.401]} rotation={[-Math.PI, 0, -1.545]} scale={[-0.089, -1, -1.225]}  material-color={linea} />
       <mesh castShadow geometry={nodes.linea012.geometry} material={materials['lineas1.001']} position={[-2.948, 3.325, 3.98]} rotation={[-Math.PI, 0, -1.545]} scale={[-0.089, -1, -6.148]}  material-color={linea} />
       <mesh castShadow geometry={nodes.linea013.geometry} material={materials['lineas.001']} position={[-2.955, 3.035, 3.98]} rotation={[-Math.PI, 0, -1.545]} scale={[-0.089, -1, -6.148]}  material-color={linea} />
-      <mesh castShadow geometry={nodes.LlantaD2.geometry} material={materials['Llantas.001']} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} ref={rueda} />
-      <mesh castShadow geometry={nodes.LlantaD1.geometry} material={materials['Llantas.003']} position={[0, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} ref={rueda2} />
-      <mesh castShadow geometry={nodes.LlantaI1.geometry} material={materials['Llantas.005']} position={[-4.493, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} ref={rueda3} />
-      <mesh castShadow geometry={nodes.LlantaI2.geometry} material={materials['Llantas.006']} position={[-5.073, -0.159, 0.142]} rotation={[Math.PI / 2, 0, 0]} ref={rueda4} />
+      <mesh geometry={nodes.LlantaD2.geometry} material={materials['Llantas.001']} position={[2.331, 1.082, 5.165]} rotation={[Math.PI / 2, 0, 0]} ref={rueda} />
+      <mesh geometry={nodes.LlantaD1.geometry} material={materials['Llantas.003']} position={[2.326, 1.079, -7.088]} rotation={[Math.PI / 2, 0, 0]} ref={rueda2}  />
+      <mesh geometry={nodes.LlantaI1.geometry} material={materials['Llantas.005']} position={[-2.135, 1.076, 5.183]} rotation={[Math.PI / 2, 0, 0]}  ref={rueda3} />
+      <mesh geometry={nodes.LlantaI2.geometry} material={materials['Llantas.006']} position={[-2.126, 1.084, -7.076]} rotation={[Math.PI / 2, 0, 0]}  ref={rueda4}  />
     </group>
   )
 }
